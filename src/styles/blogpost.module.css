@@ -1,11 +1,15 @@
-.blogItem {
-    margin-top: 20px;
-    padding: 0 35px;
+.container {
+    margin-top: 50px;
 }
+
 .center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     padding: 4rem 0;
+}
+.main{
+    padding: 0 10vh;
 }
