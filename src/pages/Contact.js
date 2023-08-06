@@ -79,7 +79,7 @@ const Contact = () => {
         </div>
         <div className={styles.mb3}>
           <label htmlFor='phone' className={styles.formlabel}>
-            Phone
+            Mobile no:
           </label>
           <input
             className={styles.input}
