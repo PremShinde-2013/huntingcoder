@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/blogpost.module.css";
+import { render } from "react-dom";
 
 // Step 1: Find the file corresponding to the slug
 // Step 2: Populate them inside the page
@@ -31,17 +32,9 @@ const slug = (props) => {
     </div>
   );
 };
-// useEffect(() => {
-//   if (!router.isReady) return;
-//   const { slug } = router.query;
-//   fetch(`http://localhost:3000/api/getblogs?slug=${slug}`)
-//     .then((a) => {
-//       return a.json();
-//     })
-//     .then((parsed) => {
-//       setBlog(parsed);
-//     });
-// }, [router.isReady]);
+
+// for server side render
+
 export async function getServerSideProps(context) {
   // const router = useRouter();
   // console.log(context.query);
@@ -53,5 +46,23 @@ export async function getServerSideProps(context) {
     props: { myBlog },
   };
 }
+
+// export async function getStaticPaths() {
+//   return {
+//     paths: [
+//       { params: { slug: "how-to-learn-JavaScript" } },
+//       { params: { slug: "how-to-learn-react" } },
+//       { params: { slug: "how-to-learn-nextjs" } },
+//     ],
+//     fallback: true,
+//   };
+// }
+
+// export async function getStaticProps({ context }) {
+//   const res = await fetch(`https://.../posts/${params.id}`);
+//   const post = await res.json();
+
+//   return { props: { post } };
+// }
 
 export default slug;
